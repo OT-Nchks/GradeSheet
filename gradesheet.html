@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade Sheet</title>
+
+    <link href="assets/bootstrap.css" rel="stylesheet">
+
+            <style>
+                    @import url('https://fonts.googleapis.com/css2?family=PT+Serif+Caption&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+                    div{
+                        min-height:50px;
+                    }
+                    .container{
+                        border:1px solid rgb(173, 173, 173);
+                        box-shadow:-1px 3px 5px 5px rgba(136, 136, 136,0.5) ;
+                    }
+
+                    body{
+                        font-family:poppins, sans-serif;
+                    }
+
+                    /*HEADER SECTION*/
+                    hr {
+                        position: relative;
+                        top: 0px;
+                        border: none;
+                        height: 6px;
+                        background:rgb(49, 41, 33);
+                        margin-bottom: 10px;
+                    }
+                  
+                    .level{
+                        height:10px;
+                        background-color:rgb(203, 195, 184);
+                    }
+                    
+                    .gradesheet{
+                        min-height:65px;
+                        background-color:rgb(131, 121, 109);
+                    }
+                    
+                    .school-name{
+                        height:50px;
+                    }
+                    
+                    .school-address{
+                        min-height:50px;
+                    }
+                     .logmotto{
+                        font-size:10px;
+                        font-style:italic;
+                    }
+
+                    /*OVERVIEW SECTION*/
+                    .hr1 {
+                        position: relative;
+                        top: 0px;
+                        border: none;
+                        height: 1px;
+                        background:rgb(49, 41, 33);
+                        margin-bottom: 4px;
+                    }
+                    .student-info-header{
+                        height:20px;
+                        background-color:rgb(131, 121, 109);
+                        
+                    }
+                    .student-info{
+                        min-height:50px;
+                        background-color: rgb(203, 195, 184);
+                    }
+                    
+                    #studentname{
+                        width:360px;
+                    }
+                    #studentclass{
+                        width:365px;
+                    }
+                    .h6-1{
+                        color: rgb(203, 195, 184);
+                        font-size:15px;
+                        font-weight:700;
+                        letter-spacing:3px;
+                    }
+                    .p1{
+                        font-size:14px;
+                        line-height:2.3em;
+                    }
+                    label{
+                        color:rgb(84, 71, 53); 
+                        font-size:14px;  
+                    }
+                    input{
+                        width:250px;
+                        height:35px;
+                        border-radius:4px;
+                        border:rgb(10, 10, 10);
+                    }
+                   input#grade1,#grade2,#grade3,#grade4,#grade5,#grade6{
+                        width:150px;
+                        height:35px;
+                        border-radius:4px;
+                        border:rgb(10, 10, 10);
+                        color:rgb(54, 88, 154);
+                        font-weight:600;
+                    }
+
+                     input::placeholder {
+                        color:rgb(180,180,180);
+                        font-size:14px;
+                    }
+                    .marks{
+                        color:rgb(93, 82, 62);
+                        font-weight:600;
+                    }
+                    #totalmarks,#average{
+                        font-weight:600;
+                        font-size:16px;
+                    }
+
+                   
+                    /*GRADE RESULT*/
+                    .table-dark-var{
+                    --bs-table-color: #fff;
+                    --bs-table-bg: rgb(84, 71, 53);
+                    --bs-table-border-color: rgb(84, 71, 53);
+                    --bs-table-striped-bg: rgb(84, 71, 53);
+                    --bs-table-striped-color: rgb(84, 71, 53);
+                    --bs-table-active-bg: rgb(84, 71, 53);
+                    --bs-table-active-color: #fff;
+                    --bs-table-hover-bg: rgb(63, 50, 31);
+                    --bs-table-hover-color: #fff;
+                    color: var(--bs-table-color);
+                    border-color: var(--bs-table-border-color);
+                    }
+                    
+                    .btn-brown {
+                    --bs-btn-color: #fff;
+                    --bs-btn-bg: rgb(84, 71, 53);
+                    --bs-btn-border-color: rgb(84, 71, 53);
+                    --bs-btn-hover-color: rgb(84, 71, 55);
+                    --bs-btn-hover-bg: rgb(184, 180, 172);
+                    --bs-btn-focus-shadow:rgb(217, 164, 6);
+                    --bs-btn-active-color: #fff;
+                    --bs-btn-active-bg: rgb(84, 71, 53);
+                    --bs-btn-active-border-color: rgb(84, 71, 53);
+                    --bs-btn-active-shadow: inset 0 3px 5px rgba(46, 35, 26, 0.125);
+                    }
+
+                   button{
+                       width:180px;
+                       height:50px;
+                    }
+                    button:hover{
+                       font-weight:700;
+                       font-size:17px;
+                    }
+                    .hidden{
+                        display:none;
+                    }
+
+                    h6{
+                        color:rgb(84, 71, 53);
+                        font-size:14px;
+                        font-weight:600;
+                        letter-spacing:2px;
+                    }
+                    h5{
+                        color:rgb(84, 71, 53);
+                        font-size:18px;
+                        font-weight:700;
+                        letter-spacing:1px;
+                    }
+                    h4{
+                        color:rgb(203, 195, 184);
+                        font-size:35px;
+                        font-weight:800;
+                        letter-spacing:5px;
+                    }
+                   
+                   
+            </style>
+</head>
+
+
+                    <body>
+                                <div class="container wrapper my-2">
+                                    <!--HEADER SECTION-->
+                                        <div class="row header">
+
+                                            <div class="col-2 py-4 px-5">
+                                                <img src="assets/img/logo4.PNG" class="img-fluid">
+                                            </div>
+
+                                            <div class="col-5">
+                                                <div class="row school-name text-center py-3">
+                                                    <div class="col">
+                                                        <h5>Our Treasure Comprehensive School</h5>
+                                                    </div>
+                                                </div>
+                                        
+                                                <div class="row school-address text-center mt-3">
+                                                    <div class="col">
+                                                        <p class="p1" >335 Main Street, Banana Road, Lekki, Lagos, 105102.<br>
+                                                        info@ourtreasureschools.com &vert; +234-816-878-5863</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-5">
+                                                <div class="row level mb-1 text-center py-3">
+                                                    <div class="col">
+                                                        <h6>SENIOR SECONDARY SCHOOL</h6>
+                                                    </div>
+                                                </div>
+                                        
+                                                <div class="row gradesheet text-center py-3">
+                                                    <div class="col">
+                                                        <h4>GRADE  SHEET</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                <!--END HEADER SECTION-->
+
+                        <hr>
+
+
+                                <!--OVERVIEW  SECTION-->
+                                        <div class="row">
+                                                <div class="col-7">
+                                                        <div class="row">
+                                                            <div class="col-6 text-center px-2 py-3 mt-2">
+                                                                <p><b>2023-2024</b></p>
+                                                            </div>
+                                                            <div class="col-6 text-center  py-3 mt-2">
+                                                                <p><b>Mrs. Tamara Williams</b></p>
+                                                            </div>
+                                                        </div>
+
+                                                    <hr class="hr1">
+
+                                                        <div class="row">
+                                                            <div class="col-6 text-center px-2 py-3">
+                                                                <p><b>SY:</b></p>
+                                                            </div>
+                                                            <div class="col-6 text-center  py-3">
+                                                                <p><b>TEACHER</b></p>
+                                                            </div>
+                                                        </div>
+                                                </div>
+
+
+                                                <div class="col-5">
+                                                    <div class="row student-info-header">
+                                                        <div class="col text-center py-3">
+                                                            <h6 class="h6-1">STUDENT INFO</h6>
+                                                        </div>
+                                                </div>
+
+                                                <div class="row student-info">
+                                                    <div class="col px-3 py-2">
+
+                                                        <label>Student's Name:</label>
+                                                                <input type="text" name="name" id="studentname" class="mb-2" placeholder="Enter Your Name"/>
+
+                                                        <label>Student's Class:</label>
+                                                                <input type="text" name="class" id="studentclass" class="mb-2" placeholder="Enter Your Class"/>
+
+                                                                <br>
+
+                                                        <label>School Session:</label>
+                                                                <select name="session" id="session">
+                                                                    <option value="0">select...</option>
+                                                                    <option value="first">First Term</option>
+                                                                    <option value="second">Second Term</option>
+                                                                    <option value="third">Third Term</option>
+                                                                </select>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row"></div>   
+                                    
+                                    
+                                    <!--GRADE RESULTS  SECTION-->
+
+                                    <div class="row">
+
+                                    <table class="table  table-bordered px-2">
+                                        <thead class="table  table-dark-var">
+                                            <tr>
+                                              <th>S/N</th>
+                                              <th>Subjects</th>
+                                              <th>Marks</th>
+                                              <th>Grade</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody>
+                                            <tr>
+                                            <th scope="row1">1</th>
+                                              <td>English Language</td>
+                                              <td><input type="number" id="english" placeholder="Enter Marks..." class="marks" onkeyup="
+                                              
+                                              var score = this.value;
+                                              var idOfWhereToWrite = 'grade1';
+                                              handleGrade(score, idOfWhereToWrite);">
+                                              
+                                            </td>
+                                              <td><input type="text" id="grade1" class="form-control"></td>
+                                            </tr>
+
+
+                                            <tr>
+                                            <th scope="row2">2</th>
+                                              <td>Mathematics</td>
+                                              <td><input type="number" id="maths" placeholder="Enter Marks..." class="marks" onkeyup="
+                                              
+                                                var score = this.value;
+                                                var idOfWhereToWrite = 'grade2';
+                                                handleGrade(score, idOfWhereToWrite);"/></td>
+                                              <td><input type="text" id="grade2" class="form-control"/></td>
+                                            </tr>
+
+                                            <tr>
+                                            <th scope="row3">3</th>
+                                              <td>Chemistry</td>
+                                              <td><input type="number" id="chemistry" placeholder="Enter Marks..." class="marks" onkeyup="
+                                              
+                                                var score = this.value;
+                                                var idOfWhereToWrite = 'grade3';
+                                                handleGrade(score, idOfWhereToWrite);"/></td>
+                                              <td><input type="text" id="grade3" class="form-control"/></td>
+                                            </tr>
+
+                                            <tr>
+                                            <th scope="row4">4</th>
+                                              <td>Physics</td>
+                                              <td><input type="number" id="physics" placeholder="Enter Marks..." class="marks" onkeyup="
+                                              
+                                                var score = this.value;
+                                                var idOfWhereToWrite = 'grade4';
+                                                handleGrade(score, idOfWhereToWrite);"/></td>
+                                              <td><input type="text" id="grade4" class="form-control"/></td>
+                                            </tr>
+
+                                            <tr>
+                                            <th scope="row5">5</th>
+                                              <td>Biology</td>
+                                              <td><input type="number" id="biology" placeholder="Enter Marks..." class="marks" onkeyup="
+                                              
+                                                var score = this.value;
+                                                var idOfWhereToWrite = 'grade5';
+                                                handleGrade(score, idOfWhereToWrite);"/></td>
+                                              <td><input type="text" id="grade5" class="form-control"/></td>
+                                            </tr>
+
+                                            <tr>
+                                            <th scope="row6">6</th>
+                                            <td>French Language</td>
+                                              <td><input type="number" id="french" placeholder="Enter Marks..." class="marks" onkeyup="
+                                              
+                                                var score = this.value;
+                                                var idOfWhereToWrite = 'grade6';
+                                                handleGrade(score, idOfWhereToWrite);"/></td>
+                                              <td><input type="text" id="grade6" class="form-control"/></td>
+                                            </tr>
+
+                                            <tr>
+                                                <th scope="row8"></th>
+                                                <td></td>
+                                                  <td></td>
+                                                  <td></td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                    <button id="myButton" class="btn btn-brown mb-3" onclick="getTotal();">GET RESULT</button>
+
+
+                                    <div class="row px-3 mb-3">
+                                        <div class="col-8">
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                          <th scope="row mb-2">Total Marks :</th>
+                                          <td id="totalmarks" class="totalmarks"></td>
+                                        </tr>
+
+                                        <tr>         
+                                          <th scope="row mb-2">Average :</th>
+                                          <td id="average"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <th scope="row mb-2">Remarks :</th>
+                                          <td id="remarks"></td>
+                                        </tr>
+                                    </tbody>
+                                      </table></div>
+
+                                      <div class="col-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:50;" id="thumbsup" class="hidden"><path d="M323.8 34.8c-38.2-10.9-78.1 11.2-89 49.4l-5.7 20c-3.7 13-10.4 25-19.5 35l-51.3 56.4c-8.9 9.8-8.2 25 1.6 33.9s25 8.2 33.9-1.6l51.3-56.4c14.1-15.5 24.4-34 30.1-54.1l5.7-20c3.6-12.7 16.9-20.1 29.7-16.5s20.1 16.9 16.5 29.7l-5.7 20c-5.7 19.9-14.7 38.7-26.6 55.5c-5.2 7.3-5.8 16.9-1.7 24.9s12.3 13 21.3 13L448 224c8.8 0 16 7.2 16 16c0 6.8-4.3 12.7-10.4 15c-7.4 2.8-13 9-14.9 16.7s.1 15.8 5.3 21.7c2.5 2.8 4 6.5 4 10.6c0 7.8-5.6 14.3-13 15.7c-8.2 1.6-15.1 7.3-18 15.2s-1.6 16.7 3.6 23.3c2.1 2.7 3.4 6.1 3.4 9.9c0 6.7-4.2 12.6-10.2 14.9c-11.5 4.5-17.7 16.9-14.4 28.8c.4 1.3 .6 2.8 .6 4.3c0 8.8-7.2 16-16 16H286.5c-12.6 0-25-3.7-35.5-10.7l-61.7-41.1c-11-7.4-25.9-4.4-33.3 6.7s-4.4 25.9 6.7 33.3l61.7 41.1c18.4 12.3 40 18.8 62.1 18.8H384c34.7 0 62.9-27.6 64-62c14.6-11.7 24-29.7 24-50c0-4.5-.5-8.8-1.3-13c15.4-11.7 25.3-30.2 25.3-51c0-6.5-1-12.8-2.8-18.7C504.8 273.7 512 257.7 512 240c0-35.3-28.6-64-64-64l-92.3 0c4.7-10.4 8.7-21.2 11.8-32.2l5.7-20c10.9-38.2-11.2-78.1-49.4-89zM32 192c-17.7 0-32 14.3-32 32V448c0 17.7 14.3 32 32 32H96c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32H32z"/></svg></div>
+
+                                        <div class="col-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width:50;" id="sad-emoji" class="hidden"><path d="M175.9 448c-35-.1-65.5-22.6-76-54.6C67.6 356.8 48 308.7 48 256C48 141.1 141.1 48 256 48s208 93.1 208 208s-93.1 208-208 208c-28.4 0-55.5-5.7-80.1-16zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM128 369c0 26 21.5 47 48 47s48-21 48-47c0-20-28.4-60.4-41.6-77.7c-3.2-4.4-9.6-4.4-12.8 0C156.6 308.6 128 349 128 369zm128-65c-13.3 0-24 10.7-24 24s10.7 24 24 24c30.7 0 58.7 11.5 80 30.6c9.9 8.8 25 8 33.9-1.9s8-25-1.9-33.9C338.3 320.2 299 304 256 304zm47.6-96a32 32 0 1 0 64 0 32 32 0 1 0 -64 0zm-128 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg>
+                                      </div>
+
+                                    </div>
+
+                                    <!--EMOJI, SIGNATURE-->
+                                    <div class="row">
+                                        <div class="col-10"></div>
+                                        <div class="col-2 px-4 py-2">
+                                            <img src="assets/img/signature2.PNG" class="img-fluid">
+                                            <u>.................................................. </u>
+                                            <span style="font-style:italic; font-size:14px;">Principal Signature</span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                       
+                        <script src="assets/script.js"></script>      
+                    </body>
+</html>
